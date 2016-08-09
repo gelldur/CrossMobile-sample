@@ -1,0 +1,3 @@
+[submodule "native/libraries/CrossMobile"]
+	path = native/libraries/CrossMobile
+	url = git@github.com:gelldur/CrossMobile.git
