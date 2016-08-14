@@ -10,14 +10,13 @@ import com.cross.mobile.CrossMobileApplication;
 public class SampleApplication extends Application {
 
 	static {
-		System.loadLibrary("CrossMobiled");
 		System.loadLibrary("sampleAppd");
 	}
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		_crossApp.onCreate();
+		_crossApp.onCreate(getApplicationContext());
 	}
 
 	private CrossMobileApplication _crossApp = new CrossMobileApplication();

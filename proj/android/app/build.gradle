@@ -6,17 +6,15 @@ android {
 
 	defaultConfig {
 		applicationId "com.cross.mobile.sample"
-		minSdkVersion 10
+		minSdkVersion 14
 		targetSdkVersion 23
 		versionCode 1
 		versionName "1.0"
 
 		externalNativeBuild {
 			cmake {
-				arguments "-DANDROID_TOOLCHAIN=clang", "-DANDROID_STL=c++_static"
-				cFlags "-DTEST_C_FLAG"
+				arguments "-DANDROID_TOOLCHAIN=clang", "-DANDROID_STL=c++_static", "-DANDROID=1"
 				cppFlags "-fexceptions", "-frtti"
-				abiFilters "armeabi", "x86"
 			}
 		}
 	}
@@ -24,6 +22,20 @@ android {
 		release {
 			minifyEnabled false
 			//proguardFiles getDefaultProguardFile ( 'proguard-android.txt' ), 'proguard-rules.pro'
+			externalNativeBuild {
+				cmake {
+					//cFlags "-DTEST_C_FLAG"
+					abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86", "x86_64", "mips", "mips64"
+				}
+			}
+		}
+		debug {
+			externalNativeBuild {
+				cmake {
+					//cFlags ""
+					abiFilters "armeabi-v7a", "x86"
+				}
+			}
 		}
 	}
 

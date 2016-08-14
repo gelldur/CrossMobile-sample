@@ -5,7 +5,7 @@ SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/native/librari
 
 ADD_COMPILE_OPTIONS(-Wall -pedantic)#add -Werror
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-long-long -Wno-unused-private-field -Wnon-virtual-dtor")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 SET(CMAKE_VERBOSE_MAKEFILE on)
 
@@ -45,8 +45,9 @@ IF(LINUX)
 			proj/linux/main.cpp
 			)
 ELSEIF(ANDROID)
+	INCLUDE(${PROJECT_SOURCE_DIR}/native/libraries/CrossMobile/proj/android/library/src/main/JniSources.cmake)
 	SET(SOURCE_FILES_PLATFORM
-			proj/android/app/src/main/native/main.cpp
+			${SOURCE_FILES_PLATFORM_JNI}
 			)
 ELSEIF(MAC_IOS)
 	SET(SOURCE_FILES_PLATFORM
@@ -70,7 +71,7 @@ SET(SOURCE_FILES_CORE
 		)
 
 SET(TEST_SOURCE_FILES
-		${CROSS_MOBILE_DIR}/test/ComponentTest.cpp
+		#${CROSS_MOBILE_DIR}/test/ComponentTest.cpp
 		${CROSS_MOBILE_DIR}/test/PreferencesTest.cpp
 		${CROSS_MOBILE_DIR}/test/ProviderTest.cpp
 		${CROSS_MOBILE_DIR}/test/ScreenStateTest.cpp
