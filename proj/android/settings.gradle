@@ -1,0 +1,2 @@
+include ':app', ':crossmobile'
+project ( ':crossmobile' ).projectDir = new File ( settingsDir, '../../native/libraries/CrossMobile/proj/android/library' )

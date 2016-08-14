@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+	compileSdkVersion 23
+	buildToolsVersion "23.0.3"
+
+	defaultConfig {
+		applicationId "com.cross.mobile.sample"
+		minSdkVersion 10
+		targetSdkVersion 23
+		versionCode 1
+		versionName "1.0"
+
+		externalNativeBuild {
+			cmake {
+				arguments "-DANDROID_TOOLCHAIN=clang", "-DANDROID_STL=c++_static"
+				cFlags "-DTEST_C_FLAG"
+				cppFlags "-fexceptions", "-frtti"
+				abiFilters "armeabi", "x86"
+			}
+		}
+	}
+	buildTypes {
+		release {
+			minifyEnabled false
+			//proguardFiles getDefaultProguardFile ( 'proguard-android.txt' ), 'proguard-rules.pro'
+		}
+	}
+
+	externalNativeBuild {
+		cmake {
+			path "../../../CMakeLists.txt"
+		}
+	}
+
+//	externalNativeBuild {
+//		ndkBuild {
+//			path 'src/main/make/Android.mk'
+//		}
+//	}
+//
+//	sourceSets {
+//		main {
+//			jni {
+//				srcDirs = []//Not stable yet
+//			}
+//		}
+//	}
+}
+
+dependencies {
+	compile fileTree ( dir: 'libs', include: ['*.jar'] )
+	testCompile 'junit:junit:4.12'
+	compile 'com.android.support:appcompat-v7:23.4.0'
+	compile 'com.android.support:recyclerview-v7:23.4.0'
+	compile project ( ':crossmobile' )
+}

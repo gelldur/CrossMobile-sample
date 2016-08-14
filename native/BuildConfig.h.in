@@ -1,0 +1,9 @@
+//
+// Created by Dawid Drozd aka Gelldur on 18.05.16.
+//
+
+#pragma once
+
+#define BUILD_VERSION_CODE ${E_BUILD_VERSION_CODE}
+#define BUILD_VERSION_NAME ${E_BUILD_VERSION_NAME}
+#define BUILD_PLATFORM ${E_BUILD_PLATFORM_NAME}
