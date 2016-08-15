@@ -71,7 +71,7 @@ SET(SOURCE_FILES_CORE
 		)
 
 SET(TEST_SOURCE_FILES
-		#${CROSS_MOBILE_DIR}/test/ComponentTest.cpp
+		${CROSS_MOBILE_DIR}/test/ComponentTest.cpp
 		${CROSS_MOBILE_DIR}/test/PreferencesTest.cpp
 		${CROSS_MOBILE_DIR}/test/ProviderTest.cpp
 		${CROSS_MOBILE_DIR}/test/ScreenStateTest.cpp
