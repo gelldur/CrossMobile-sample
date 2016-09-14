@@ -4,4 +4,4 @@
 ![SampleApp - android](/README/android-sample-app.gif)
 
 ## IOS
-TODO
+![SampleApp - ios](/README/ios-simulator-sample-app.gif)
