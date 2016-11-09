@@ -8,6 +8,7 @@
 #include <vector>
 #include <component/Nodect.h>
 #include <component/adapter/AdapterList.h>
+#include <component/adapter/ListDataSource.h>
 
 class Adapter : public AdapterList
 {
@@ -17,6 +18,8 @@ public:
 	virtual int getSize() override;
 	virtual const std::string& getIdentifier(int index) override;
 	virtual void setElement(int position, const Nodect& row) override;
+
+	std::unique_ptr<ListDataSource> getData();
 
 private:
 	struct Element

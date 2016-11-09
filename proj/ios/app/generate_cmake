@@ -1,0 +1,2 @@
+mkdir -p sampleApp
+(cd sampleApp && cmake -DIOS=ON -G Xcode ../../..)

@@ -18,6 +18,8 @@ public:
 	virtual void onPause() override;
 	virtual void onDestroy() override;
 
+	std::shared_ptr<AdapterList> getAdapter();
+
 private:
 	std::shared_ptr<AdapterList> _adapter;
 };

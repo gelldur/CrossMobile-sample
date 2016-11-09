@@ -30,7 +30,6 @@ void MainScreen::onCreate()
 void MainScreen::onResume()
 {
 	auto& textView = NodectHelper::find(getNativeScreen(), "textView");
-	DLOG("Before finding component");
 	textView.getComponent<Text>().setText("Hello from CrossMobile++ sample\ncode");
 }
 
@@ -42,4 +41,9 @@ void MainScreen::onPause()
 void MainScreen::onDestroy()
 {
 
+}
+
+std::shared_ptr<AdapterList> MainScreen::getAdapter()
+{
+	return _adapter;
 }

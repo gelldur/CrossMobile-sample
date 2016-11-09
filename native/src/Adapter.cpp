@@ -42,3 +42,15 @@ void Adapter::setElement(int position, const Nodect& row)
 	auto& image = NodectHelper::find(row, "image");
 	image.getComponent<Image>().image(element.image);
 }
+
+std::unique_ptr<ListDataSource> Adapter::getData()
+{
+	std::unique_ptr<ListDataSource> listData = std::unique_ptr<ListDataSource>(new ListDataSource(getSize()));
+
+	for (auto& element : _elements)
+	{
+		listData->add("element", {element});
+	}
+
+	return std::move(listData);
+}

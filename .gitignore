@@ -28,5 +28,9 @@
 *.out
 *.app
 
+# OSX files
+.DS_Store
+._*
+
 .idea/
 /native/src/BuildConfig.h
